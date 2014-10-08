@@ -1,12 +1,12 @@
 var a=0;
   	var x_ball=20;
   	var y_ball=40;
-  	var vx=5;
-  	var vy=5;
+  	var vx=10;
+  	var vy=10;
   	var count=0;
   	
   	function init(){
-  		setInterval(draw,31);
+  		setInterval(draw,28);
   	}
   	
 
@@ -48,12 +48,30 @@ var a=0;
 			ctx.restore();
 			
 			//ball
-			ctx.fillStyle='rgb('+Math.floor(255-240*Math.random())+',200,150)';
+			ctx.fillStyle='rgb(255,0,255)';
 			ctx.strokeStyle='rgb(0,0,0)';
 			ctx.beginPath();
 			ctx.arc(x_ball,y_ball,15,0,Math.PI*2);//radius 15
 			ctx.stroke();
 			ctx.fill();
+			// glory in the ball
+			ctx.save();
+			ctx.fillStyle='rgba(250,250,250,0.8)';
+			ctx.translate(x_ball,y_ball);
+			if(vx<0)
+			{
+				ctx.rotate((2*Math.PI/50)*(vx-a));
+			}
+			else
+			{
+				ctx.rotate((2*Math.PI/50)*(vx+a));
+			}
+			ctx.beginPath();
+			ctx.arc(5,5,5,0,Math.PI*2);
+			ctx.moveTo(8,11);
+			ctx.arc(-2,10,3,0,Math.PI*2);
+			ctx.fill();
+			ctx.restore();
 			x_ball+=vx;
 			y_ball+=vy;
 			if(x_ball>485||x_ball<15)
@@ -61,29 +79,35 @@ var a=0;
 				vx=vx*(-1);
 				vy=vy*(0.7+Math.random());
 			}
+			else
+			{
+				if(vx >= 25)
+				{
+					vx=10;
+				}
+				if(vx<=-25)
+				{
+					vx=-10;
+				}
+			}
 				
 			if(y_ball>485||y_ball<15)
 			{
 				vy=vy*(-1);
 				vx=vx*(0.7+Math.random());
 			}
+			else
+			{
+				if(vy>=25)
+				{
+					vy=10;
+				}
+				if(vy<=-25)
+				{
+					vy=-10;
+				}
+			}
 			
-			if(vx >= 20)
-			{
-				vx=8;
-			}
-			if(vy>=20)
-			{
-				vy=8;
-			}
-			if(vy<=-20)
-			{
-				vy=-8;
-			}
-			if(vx<=-20)
-			{
-				vx=-8;
-			}
 			
 			//score
 			ctx.font='30px Lucida Console';
