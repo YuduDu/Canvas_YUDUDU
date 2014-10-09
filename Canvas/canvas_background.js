@@ -3,6 +3,7 @@ var a=0;
   	var y_ball=40;
   	var vx=10;
   	var vy=10;
+  	var b=1;
   	var count=0;
   	
   	function init(){
@@ -18,6 +19,9 @@ var a=0;
 			ctx.save();
 			//background
 			ctx.translate(250,250);
+			var x_c=32*Math.cos(b*Math.PI/72) +48*Math.cos(-(2/3)*(b*Math.PI/72));
+			var y_c=32*Math.sin(b*Math.PI/72) + 48*Math.sin(-(2/3)*(b*Math.PI/72));
+			ctx.translate(x_c,y_c);
 			ctx.rotate((2*Math.PI/50)*a);
 			for(var i=0;i<10;i++){
 				ctx.fillStyle = 'rgb(250,'+Math.floor(255-24*i)+',0)';
@@ -25,11 +29,16 @@ var a=0;
 				var endangle=(i+1)*Math.PI/5;
 				ctx.beginPath();
 				ctx.moveTo(0,0);
-				ctx.arc(0,0,400,startangle,endangle);
+				ctx.arc(0,0,500,startangle,endangle);
 				ctx.fill();
 
 			}
 			a++;
+			b++;
+			if(b==2000)
+			{
+				b=1;
+			}
 			if(a == 50)
 			{
 				a=0;
