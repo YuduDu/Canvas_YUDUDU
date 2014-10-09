@@ -24,7 +24,7 @@ var a=0;
 			ctx.translate(x_c,y_c);
 			ctx.rotate((2*Math.PI/50)*a);
 			for(var i=0;i<10;i++){
-				ctx.fillStyle = 'rgb(250,'+Math.floor(255-24*i)+',0)';
+				ctx.fillStyle = 'rgb(0,'+Math.floor(255-24*i)+',125)';
 				var startangle=i*Math.PI/5;
 				var endangle=(i+1)*Math.PI/5;
 				ctx.beginPath();
@@ -49,12 +49,12 @@ var a=0;
 				ctx.beginPath();
 				ctx.arc(0,0,50*j+a,0,Math.PI*2,false);
 				ctx.strokeStyle='rgba(250,250,250,'+(0.5-0.08*j)+')';
-				ctx.lineWidth=(3*j);
+				ctx.lineWidth=(4*j);
 				ctx.stroke();
 			}
 			//ball
 			ctx.restore();
-			ctx.fillStyle='rgb(255,0,255)';
+			ctx.fillStyle='rgb(0,120,0)';
 			ctx.strokeStyle='rgb(0,0,0)';
 			ctx.beginPath();
 			ctx.arc(x_ball,y_ball,15,0,Math.PI*2);//radius 15
@@ -117,7 +117,7 @@ var a=0;
 
 			//score
 			ctx.font='30px Lucida Console';
-       		ctx.fillStyle='blue';
+       		ctx.fillStyle='yellow';
        		ctx.fillText("Score: "+count,10,30);
 			ctx.restore();	
     }
