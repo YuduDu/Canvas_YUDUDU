@@ -1,12 +1,20 @@
 canvas {
 	border:solid;
-	box-shadow: rgba(0,0,0,0.2) 10px
+	position: absolute;
+	top:150px;
+    left: 300px;
 }
 h1{
 	font-family: Verdana;
 	font-weight: bold;
+	position: absolute;
+	top:30px;
+	left:350px;
 	text-align: center;
 	padding-top: 25px;
 	padding-bottom: 25px;
 	color: #acd1b2;
+}
+body {
+    background-image: url("background.gif");
 }

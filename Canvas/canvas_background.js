@@ -19,7 +19,6 @@ var a=0;
 			//background
 			ctx.translate(250,250);
 			ctx.rotate((2*Math.PI/50)*a);
-			//ctx.arc(0,0,300,0,Math.PI*2);
 			for(var i=0;i<10;i++){
 				ctx.fillStyle = 'rgb(250,'+Math.floor(255-24*i)+',0)';
 				var startangle=i*Math.PI/5;
@@ -28,6 +27,7 @@ var a=0;
 				ctx.moveTo(0,0);
 				ctx.arc(0,0,400,startangle,endangle);
 				ctx.fill();
+
 			}
 			a++;
 			if(a == 50)
@@ -35,7 +35,6 @@ var a=0;
 				a=0;
 			}
 			//glory
-			
 			for(var j=0;j<10;j++)
 			{
 				ctx.beginPath();
@@ -44,10 +43,8 @@ var a=0;
 				ctx.lineWidth=(3*j);
 				ctx.stroke();
 			}
-			
-			ctx.restore();
-			
 			//ball
+			ctx.restore();
 			ctx.fillStyle='rgb(255,0,255)';
 			ctx.strokeStyle='rgb(0,0,0)';
 			ctx.beginPath();
@@ -108,7 +105,7 @@ var a=0;
 				}
 			}
 			
-			
+
 			//score
 			ctx.font='30px Lucida Console';
        		ctx.fillStyle='blue';
