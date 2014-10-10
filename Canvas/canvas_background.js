@@ -1,10 +1,10 @@
 var a=0;
-  	var x_ball=20;
+  	var x_ball=20;//position of the ball
   	var y_ball=40;
-  	var vx=10;
+  	var vx=10;//speed of the ball
   	var vy=10;
-  	var b=1;
-  	var count=0;
+  	var b=1;//control moving of the center of background
+  	var count=0;//score
   	
   	function init(){
   		setInterval(draw,28);
@@ -17,13 +17,14 @@ var a=0;
 			ctx.clearRect(0,0,500,500);
 			ctx.globalCompositeOperation='source-over';
 			ctx.save();
+			
 			//background
 			ctx.translate(250,250);
 			var x_c=32*Math.cos(b*Math.PI/72) +48*Math.cos(-(2/3)*(b*Math.PI/72));
 			var y_c=32*Math.sin(b*Math.PI/72) + 48*Math.sin(-(2/3)*(b*Math.PI/72));
-			ctx.translate(x_c,y_c);
-			ctx.rotate((2*Math.PI/50)*a);
-			for(var i=0;i<10;i++){
+			ctx.translate(x_c,y_c);//moving background center
+			ctx.rotate((2*Math.PI/50)*a);// rotate background
+			for(var i=0;i<10;i++){ //draw background
 				ctx.fillStyle = 'rgb(0,'+Math.floor(255-24*i)+',125)';
 				var startangle=i*Math.PI/5;
 				var endangle=(i+1)*Math.PI/5;
@@ -43,7 +44,7 @@ var a=0;
 			{
 				a=0;
 			}
-			//glory
+			//light of the background
 			for(var j=0;j<10;j++)
 			{
 				ctx.beginPath();
@@ -60,7 +61,7 @@ var a=0;
 			ctx.arc(x_ball,y_ball,15,0,Math.PI*2);//radius 15
 			ctx.stroke();
 			ctx.fill();
-			// glory in the ball
+			// light in the ball
 			ctx.save();
 			ctx.fillStyle='rgba(250,250,250,0.8)';
 			ctx.translate(x_ball,y_ball);
@@ -78,6 +79,8 @@ var a=0;
 			ctx.arc(-2,10,3,0,Math.PI*2);
 			ctx.fill();
 			ctx.restore();
+			
+			//move the ball
 			x_ball+=vx;
 			y_ball+=vy;
 			if(x_ball>485||x_ball<15)
