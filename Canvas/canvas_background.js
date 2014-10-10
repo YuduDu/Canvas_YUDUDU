@@ -24,10 +24,10 @@ var a=0;
 			var y_c=32*Math.sin(b*Math.PI/72) + 48*Math.sin(-(2/3)*(b*Math.PI/72));
 			ctx.translate(x_c,y_c);//moving background center
 			ctx.rotate((2*Math.PI/50)*a);// rotate background
-			for(var i=0;i<10;i++){ //draw background
-				ctx.fillStyle = 'rgb(0,'+Math.floor(255-24*i)+',125)';
-				var startangle=i*Math.PI/5;
-				var endangle=(i+1)*Math.PI/5;
+			for(var i=0;i<1000;i++){ //draw background
+				ctx.fillStyle = 'rgb(0,'+Math.floor(255-0.24*i)+',125)';
+				var startangle=i*Math.PI/500;
+				var endangle=(i+1)*Math.PI/500;
 				ctx.beginPath();
 				ctx.moveTo(0,0);
 				ctx.arc(0,0,500,startangle,endangle);
